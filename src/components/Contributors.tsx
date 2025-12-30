@@ -13,27 +13,27 @@ const contributors: Contributor[] = [
     profileUrl: 'https://github.com/et-si-ai',
   },
   {
-    name: 'ML Lead',
+    name: 'Core Team',
     image: 'https://api.dicebear.com/7.x/shapes/svg?seed=etsi2&backgroundColor=1a1625',
     profileUrl: 'https://github.com/et-si-ai',
   },
   {
-    name: 'Data Engineer',
+    name: 'Core Team',
     image: 'https://api.dicebear.com/7.x/shapes/svg?seed=etsi3&backgroundColor=1a1625',
     profileUrl: 'https://github.com/et-si-ai',
   },
   {
-    name: 'Research',
+    name: 'Contributor',
     image: 'https://api.dicebear.com/7.x/shapes/svg?seed=etsi4&backgroundColor=1a1625',
     profileUrl: 'https://github.com/et-si-ai',
   },
   {
-    name: 'DevOps',
+    name: 'Contributor',
     image: 'https://api.dicebear.com/7.x/shapes/svg?seed=etsi5&backgroundColor=1a1625',
     profileUrl: 'https://github.com/et-si-ai',
   },
   {
-    name: 'Community',
+    name: 'Contributor',
     image: 'https://api.dicebear.com/7.x/shapes/svg?seed=etsi6&backgroundColor=1a1625',
     profileUrl: 'https://github.com/et-si-ai',
   },
