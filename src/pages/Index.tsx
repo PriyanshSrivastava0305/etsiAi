@@ -3,6 +3,7 @@ import { FloatingElements } from '@/components/FloatingElements';
 import { HeroSection } from '@/components/HeroSection';
 import { ProductShowcase } from '@/components/ProductShowcase';
 import { WhatsNext } from '@/components/WhatsNext';
+import { TeamSection } from '@/components/TeamSection';
 import { Contributors } from '@/components/Contributors';
 import { Footer } from '@/components/Footer';
 
@@ -25,6 +26,7 @@ const Index = () => {
         <HeroSection />
         <ProductShowcase />
         <WhatsNext />
+        <TeamSection />
         <Contributors />
         <Footer />
       </main>
