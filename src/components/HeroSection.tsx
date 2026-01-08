@@ -24,7 +24,7 @@ export const HeroSection = () => {
         {/* CTAs */}
         <div className="mt-12 flex flex-col sm:flex-row items-center justify-center gap-4 animate-fade-up-delayed-2">
           <Button variant="glow" size="lg" asChild>
-            <a href="https://github.com/et-si-ai" target="_blank" rel="noopener noreferrer">
+            <a href="https://github.com/etsi-ai" target="_blank" rel="noopener noreferrer">
               <Github className="w-5 h-5" />
               GitHub
             </a>

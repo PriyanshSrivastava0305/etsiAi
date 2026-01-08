@@ -1,4 +1,4 @@
-import { Github } from 'lucide-react';
+import { Github, MessageCircle } from 'lucide-react';
 
 export const Footer = () => {
   return (
@@ -26,7 +26,7 @@ export const Footer = () => {
           {/* Links */}
           <div className="flex items-center gap-8">
             <a 
-              href="https://github.com/et-si-ai"
+              href="https://github.com/etsi-ai"
               target="_blank"
               rel="noopener noreferrer"
               className="text-muted-foreground hover:text-primary transition-colors flex items-center gap-2"
@@ -35,7 +35,7 @@ export const Footer = () => {
               <span className="text-sm font-mono">GitHub</span>
             </a>
             <a 
-              href="https://github.com/et-si-ai"
+              href="https://github.com/etsi-ai"
               target="_blank"
               rel="noopener noreferrer"
               className="text-muted-foreground hover:text-primary transition-colors text-sm font-mono"
@@ -43,12 +43,13 @@ export const Footer = () => {
               Docs
             </a>
             <a 
-              href="https://github.com/et-si-ai"
+              href="https://discord.gg/R2jYcc3fK3"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-muted-foreground hover:text-primary transition-colors text-sm font-mono"
+              className="text-muted-foreground hover:text-primary transition-colors flex items-center gap-2"
             >
-              Community
+              <MessageCircle className="w-5 h-5" />
+              <span className="text-sm font-mono">Discord</span>
             </a>
           </div>
         </div>
