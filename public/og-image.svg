@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" fill="none">
+  <defs>
+    <linearGradient id="bgGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="hsl(260, 30%, 6%)" />
+      <stop offset="50%" stop-color="hsl(265, 25%, 8%)" />
+      <stop offset="100%" stop-color="hsl(260, 30%, 6%)" />
+    </linearGradient>
+    <linearGradient id="textGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="hsl(265, 85%, 65%)" />
+      <stop offset="100%" stop-color="hsl(275, 90%, 70%)" />
+    </linearGradient>
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="hsl(265, 85%, 65%)" stroke-width="0.5" opacity="0.1"/>
+    </pattern>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="1200" height="630" fill="url(#bgGradient)" />
+  
+  <!-- Subtle grid pattern -->
+  <rect width="1200" height="630" fill="url(#grid)" />
+  
+  <!-- Main title -->
+  <text x="600" y="280" text-anchor="middle" fill="url(#textGradient)" font-family="system-ui, sans-serif" font-size="120" font-weight="600">
+    et-si<tspan fill="hsl(265, 85%, 65%)">.ai</tspan>
+  </text>
+  
+  <!-- Subtitle -->
+  <text x="600" y="350" text-anchor="middle" fill="hsl(260, 20%, 70%)" font-family="system-ui, sans-serif" font-size="32" font-weight="300">
+    What if?
+  </text>
+  
+  <!-- Tagline -->
+  <text x="600" y="420" text-anchor="middle" fill="hsl(260, 15%, 55%)" font-family="monospace" font-size="24" font-weight="400">
+    Open-source AI tools for ML &amp; Data builders
+  </text>
+  
+  <!-- Decorative elements -->
+  <circle cx="200" cy="150" r="3" fill="hsl(265, 85%, 65%)" opacity="0.6" />
+  <circle cx="1000" cy="480" r="4" fill="hsl(275, 90%, 70%)" opacity="0.5" />
+  <circle cx="150" cy="500" r="2" fill="hsl(265, 85%, 65%)" opacity="0.7" />
+  <circle cx="1050" cy="120" r="2.5" fill="hsl(275, 90%, 70%)" opacity="0.4" />
+</svg>
