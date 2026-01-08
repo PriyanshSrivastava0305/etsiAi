@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Debug - et-si.ai Meta Tags</title>
+    <style>
+        body { font-family: monospace; padding: 20px; background: #1a1625; color: #fff; }
+        .meta-info { background: #2a2635; padding: 15px; margin: 10px 0; border-radius: 5px; }
+        .label { color: #a855f7; font-weight: bold; }
+    </style>
+</head>
+<body>
+    <h1>Meta Tags Debug - et-si.ai</h1>
+    
+    <div class="meta-info">
+        <div class="label">Title:</div>
+        <div id="title"></div>
+    </div>
+    
+    <div class="meta-info">
+        <div class="label">Description:</div>
+        <div id="description"></div>
+    </div>
+    
+    <div class="meta-info">
+        <div class="label">OG Title:</div>
+        <div id="og-title"></div>
+    </div>
+    
+    <div class="meta-info">
+        <div class="label">OG Description:</div>
+        <div id="og-description"></div>
+    </div>
+    
+    <div class="meta-info">
+        <div class="label">OG Image:</div>
+        <div id="og-image"></div>
+    </div>
+    
+    <div class="meta-info">
+        <div class="label">Current URL:</div>
+        <div id="current-url"></div>
+    </div>
+
+    <script>
+        document.getElementById('title').textContent = document.title;
+        document.getElementById('description').textContent = document.querySelector('meta[name="description"]')?.content || 'Not found';
+        document.getElementById('og-title').textContent = document.querySelector('meta[property="og:title"]')?.content || 'Not found';
+        document.getElementById('og-description').textContent = document.querySelector('meta[property="og:description"]')?.content || 'Not found';
+        document.getElementById('og-image').textContent = document.querySelector('meta[property="og:image"]')?.content || 'Not found';
+        document.getElementById('current-url').textContent = window.location.href;
+    </script>
+</body>
+</html>
