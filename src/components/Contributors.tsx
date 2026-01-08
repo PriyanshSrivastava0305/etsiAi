@@ -222,11 +222,12 @@ export const Contributors = () => {
               onMouseLeave={() => setHoveredIndex(null)}
               style={{
                 zIndex: hoveredIndex === index ? 50 : 10,
+                transition: 'z-index 0ms 200ms', // Delay z-index change to prevent flickering
               }}
             >
               {/* Glow effect */}
               <div 
-                className={`absolute inset-0 rounded-full transition-all duration-500 ${
+                className={`absolute inset-0 rounded-full transition-all duration-700 ease-in-out ${
                   hoveredIndex === index ? 'opacity-100 scale-150' : 'opacity-0 scale-100'
                 }`}
                 style={{
@@ -236,17 +237,24 @@ export const Contributors = () => {
               />
               
               {/* Avatar container */}
-              <div className={`relative rounded-full overflow-hidden border-2 transition-all duration-500 ease-out ${
+              <div className={`relative rounded-full overflow-hidden border-2 transition-all duration-400 ease-out ${
                 hoveredIndex === index 
                   ? 'w-28 h-28 md:w-32 md:h-32 border-primary box-glow-hover scale-110 -translate-y-2' 
                   : hoveredIndex !== null
-                  ? 'w-16 h-16 md:w-20 md:h-20 border-border/30 scale-90 opacity-70'
-                  : 'w-20 h-20 md:w-24 md:h-24 border-border/50'
-              }`}>
+                  ? 'w-16 h-16 md:w-20 md:h-20 border-border/30 scale-95 opacity-75'
+                  : 'w-20 h-20 md:w-24 md:h-24 border-border/50 scale-100 opacity-100'
+              }`}
+              style={{
+                transformOrigin: 'center center',
+                willChange: 'transform, width, height, opacity', // Optimize for animations
+              }}>
                 <img
                   src={contributor.avatar_url}
                   alt={contributor.login}
-                  className="w-full h-full object-cover transition-all duration-500"
+                  className="w-full h-full object-cover transition-all duration-400 ease-out"
+                  style={{
+                    willChange: 'transform', // Optimize image transforms
+                  }}
                   onError={(e) => {
                     // Fallback to generated avatar if GitHub avatar fails
                     const target = e.target as HTMLImageElement;
@@ -255,19 +263,25 @@ export const Contributors = () => {
                 />
                 
                 {/* Pulse ring effect on hover */}
-                <div className={`absolute inset-0 rounded-full border-2 border-primary transition-all duration-500 ${
+                <div className={`absolute inset-0 rounded-full border-2 border-primary transition-all duration-600 ease-out ${
                   hoveredIndex === index 
-                    ? 'scale-125 opacity-0 animate-ping' 
+                    ? 'scale-125 opacity-0' 
                     : 'scale-100 opacity-0'
-                }`} />
+                }`} 
+                style={{
+                  animation: hoveredIndex === index ? 'pulse-ring 1.5s ease-out infinite' : 'none',
+                }} />
               </div>
 
               {/* Contributor info tooltip */}
-              <div className={`absolute -bottom-20 left-1/2 -translate-x-1/2 whitespace-nowrap transition-all duration-500 ${
+              <div className={`absolute -bottom-20 left-1/2 -translate-x-1/2 whitespace-nowrap transition-all duration-300 ease-out ${
                 hoveredIndex === index 
                   ? 'opacity-100 translate-y-0 scale-100' 
                   : 'opacity-0 translate-y-4 scale-95'
-              }`}>
+              }`}
+              style={{
+                transitionDelay: hoveredIndex === index ? '100ms' : '0ms', // Slight delay for tooltip appearance
+              }}>
                 <div className="bg-card/95 backdrop-blur-sm border border-border/50 rounded-lg px-4 py-3 text-center shadow-xl">
                   <span className="text-sm font-mono text-primary block font-semibold">
                     {contributor.login}
@@ -292,12 +306,11 @@ export const Contributors = () => {
                   {[...Array(6)].map((_, particleIndex) => (
                     <div
                       key={particleIndex}
-                      className="absolute w-1 h-1 bg-primary rounded-full animate-ping"
+                      className="absolute w-1 h-1 bg-primary rounded-full opacity-0"
                       style={{
                         top: `${20 + Math.random() * 60}%`,
                         left: `${20 + Math.random() * 60}%`,
-                        animationDelay: `${particleIndex * 0.1}s`,
-                        animationDuration: '1.5s',
+                        animation: `particle-float 2s ease-out ${particleIndex * 0.1}s infinite`,
                       }}
                     />
                   ))}
