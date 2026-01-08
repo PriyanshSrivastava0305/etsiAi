@@ -222,65 +222,67 @@ export const Contributors = () => {
               onMouseLeave={() => setHoveredIndex(null)}
               style={{
                 zIndex: hoveredIndex === index ? 50 : 10,
-                transition: 'z-index 0ms 200ms', // Delay z-index change to prevent flickering
+                transition: 'z-index 0ms 150ms',
               }}
             >
               {/* Glow effect */}
               <div 
-                className={`absolute inset-0 rounded-full transition-all duration-700 ease-in-out ${
+                className={`absolute inset-0 rounded-full transition-all duration-500 ease-out ${
                   hoveredIndex === index ? 'opacity-100 scale-150' : 'opacity-0 scale-100'
                 }`}
                 style={{
                   background: 'radial-gradient(circle, hsl(265 85% 65% / 0.4) 0%, transparent 70%)',
                   filter: 'blur(20px)',
+                  willChange: 'transform, opacity',
                 }}
               />
               
               {/* Avatar container */}
-              <div className={`relative rounded-full overflow-hidden border-2 transition-all duration-400 ease-out ${
+              <div className={`relative rounded-full overflow-hidden border-2 transition-all duration-300 ease-out ${
                 hoveredIndex === index 
                   ? 'w-28 h-28 md:w-32 md:h-32 border-primary box-glow-hover scale-110 -translate-y-2' 
                   : hoveredIndex !== null
-                  ? 'w-16 h-16 md:w-20 md:h-20 border-border/30 scale-95 opacity-75'
+                  ? 'w-16 h-16 md:w-20 md:h-20 border-border/30 scale-95 opacity-80'
                   : 'w-20 h-20 md:w-24 md:h-24 border-border/50 scale-100 opacity-100'
               }`}
               style={{
                 transformOrigin: 'center center',
-                willChange: 'transform, width, height, opacity', // Optimize for animations
+                willChange: 'transform, width, height, opacity',
+                transitionTimingFunction: 'cubic-bezier(0.25, 0.46, 0.45, 0.94)',
               }}>
                 <img
                   src={contributor.avatar_url}
                   alt={contributor.login}
-                  className="w-full h-full object-cover transition-all duration-400 ease-out"
+                  className="w-full h-full object-cover transition-all duration-300 ease-out"
                   style={{
-                    willChange: 'transform', // Optimize image transforms
+                    willChange: 'transform',
                   }}
                   onError={(e) => {
-                    // Fallback to generated avatar if GitHub avatar fails
                     const target = e.target as HTMLImageElement;
                     target.src = `https://api.dicebear.com/7.x/shapes/svg?seed=${contributor.login}&backgroundColor=1a1625`;
                   }}
                 />
                 
                 {/* Pulse ring effect on hover */}
-                <div className={`absolute inset-0 rounded-full border-2 border-primary transition-all duration-600 ease-out ${
+                <div className={`absolute inset-0 rounded-full border-2 border-primary transition-all duration-400 ease-out ${
                   hoveredIndex === index 
-                    ? 'scale-125 opacity-0' 
+                    ? 'scale-115 opacity-0' 
                     : 'scale-100 opacity-0'
                 }`} 
                 style={{
-                  animation: hoveredIndex === index ? 'pulse-ring 1.5s ease-out infinite' : 'none',
+                  animation: hoveredIndex === index ? 'pulse-ring 1.8s ease-out infinite' : 'none',
                 }} />
               </div>
 
               {/* Contributor info tooltip */}
-              <div className={`absolute -bottom-20 left-1/2 -translate-x-1/2 whitespace-nowrap transition-all duration-300 ease-out ${
+              <div className={`absolute -bottom-20 left-1/2 -translate-x-1/2 whitespace-nowrap transition-all duration-250 ease-out ${
                 hoveredIndex === index 
                   ? 'opacity-100 translate-y-0 scale-100' 
-                  : 'opacity-0 translate-y-4 scale-95'
+                  : 'opacity-0 translate-y-3 scale-95'
               }`}
               style={{
-                transitionDelay: hoveredIndex === index ? '100ms' : '0ms', // Slight delay for tooltip appearance
+                transitionDelay: hoveredIndex === index ? '80ms' : '0ms',
+                willChange: 'transform, opacity',
               }}>
                 <div className="bg-card/95 backdrop-blur-sm border border-border/50 rounded-lg px-4 py-3 text-center shadow-xl">
                   <span className="text-sm font-mono text-primary block font-semibold">
@@ -303,14 +305,14 @@ export const Contributors = () => {
               {/* Floating particles effect on hover */}
               {hoveredIndex === index && (
                 <div className="absolute inset-0 pointer-events-none">
-                  {[...Array(6)].map((_, particleIndex) => (
+                  {[...Array(5)].map((_, particleIndex) => (
                     <div
                       key={particleIndex}
                       className="absolute w-1 h-1 bg-primary rounded-full opacity-0"
                       style={{
-                        top: `${20 + Math.random() * 60}%`,
-                        left: `${20 + Math.random() * 60}%`,
-                        animation: `particle-float 2s ease-out ${particleIndex * 0.1}s infinite`,
+                        top: `${25 + Math.random() * 50}%`,
+                        left: `${25 + Math.random() * 50}%`,
+                        animation: `particle-float 2.2s ease-out ${particleIndex * 0.15}s infinite`,
                       }}
                     />
                   ))}

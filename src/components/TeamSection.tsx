@@ -66,50 +66,58 @@ export const TeamSection = () => {
           {teamMembers.map((member, index) => (
             <div
               key={index}
-              className="group relative glass-panel p-6 text-center transition-all duration-500 hover:box-glow-hover"
+              className="group relative glass-panel p-6 text-center transition-all duration-400 ease-out hover:box-glow-hover hover:-translate-y-1"
               onMouseEnter={() => setHoveredIndex(index)}
               onMouseLeave={() => setHoveredIndex(null)}
+              style={{
+                willChange: 'transform, box-shadow',
+                transitionDelay: `${index * 50}ms`,
+              }}
             >
               {/* Neon border effect */}
-              <div className={`absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 neon-border`} />
+              <div className={`absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 ease-out neon-border`} />
               
               {/* Profile image */}
               <div className="relative mb-6">
                 {/* Glow effect */}
                 <div 
-                  className={`absolute inset-0 rounded-full transition-all duration-500 ${
+                  className={`absolute inset-0 rounded-full transition-all duration-400 ease-out ${
                     hoveredIndex === index ? 'opacity-100 scale-110' : 'opacity-0 scale-100'
                   }`}
                   style={{
                     background: 'radial-gradient(circle, hsl(265 85% 65% / 0.4) 0%, transparent 70%)',
                     filter: 'blur(20px)',
+                    willChange: 'transform, opacity',
                   }}
                 />
                 
-                <div className={`relative w-24 h-24 mx-auto rounded-full overflow-hidden border-2 transition-all duration-300 ${
+                <div className={`relative w-24 h-24 mx-auto rounded-full overflow-hidden border-2 transition-all duration-300 ease-out ${
                   hoveredIndex === index 
                     ? 'border-primary box-glow-hover scale-105' 
                     : 'border-border/50'
-                }`}>
+                }`}
+                style={{
+                  willChange: 'transform, border-color',
+                }}>
                   <img
                     src={member.image}
                     alt={member.name}
-                    className="w-full h-full object-cover"
+                    className="w-full h-full object-cover transition-transform duration-300 ease-out group-hover:scale-110"
                   />
                 </div>
               </div>
 
               {/* Member info */}
               <div className="space-y-3">
-                <h3 className="text-xl font-semibold text-foreground">
+                <h3 className="text-xl font-semibold text-foreground transition-colors duration-300 ease-out group-hover:text-primary">
                   {member.name}
                 </h3>
                 
                 <div className="space-y-1">
-                  <p className="text-primary text-sm font-medium">
+                  <p className="text-primary text-sm font-medium transition-colors duration-300 ease-out">
                     {member.currentRole}
                   </p>
-                  <p className="text-muted-foreground text-xs font-mono">
+                  <p className="text-muted-foreground text-xs font-mono transition-colors duration-300 ease-out">
                     {member.previousRole}
                   </p>
                 </div>
@@ -121,7 +129,7 @@ export const TeamSection = () => {
                       href={member.github}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="text-muted-foreground hover:text-primary transition-colors p-2 rounded-lg hover:bg-primary/10"
+                      className="text-muted-foreground hover:text-primary transition-all duration-300 ease-out p-2 rounded-lg hover:bg-primary/10 hover:scale-110"
                     >
                       <Github className="w-4 h-4" />
                     </a>
@@ -131,7 +139,7 @@ export const TeamSection = () => {
                       href={member.linkedin}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="text-muted-foreground hover:text-primary transition-colors p-2 rounded-lg hover:bg-primary/10"
+                      className="text-muted-foreground hover:text-primary transition-all duration-300 ease-out p-2 rounded-lg hover:bg-primary/10 hover:scale-110"
                     >
                       <Linkedin className="w-4 h-4" />
                     </a>
