@@ -22,7 +22,7 @@ export const ProductShowcase = () => {
             title="etsi-watchdog"
             subtitle="Real-time data drift detection for ML pipelines"
             description="Production monitoring for ML data quality, drift, and version changes — built for practitioners."
-            docsLink="https://github.com/et-si-ai/etsi-watchdog"
+            docsLink="https://etsi-ai.github.io/docs/etsi-watchdog.html"
             visual={<WatchdogVisual />}
           />
           
@@ -30,7 +30,7 @@ export const ProductShowcase = () => {
             title="etsi-failprint"
             subtitle="Diagnose model failures"
             description="Automatic root-cause analysis that reveals why ML models fail — segmenting, clustering, and correlating failures."
-            docsLink="https://github.com/et-si-ai/etsi-failprint"
+            docsLink="https://etsi-ai.github.io/docs/etsi-failprint.html"
             visual={<FailprintVisual />}
           />
         </div>

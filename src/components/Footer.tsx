@@ -35,7 +35,7 @@ export const Footer = () => {
               <span className="text-sm font-mono">GitHub</span>
             </a>
             <a 
-              href="https://github.com/etsi-ai"
+              href="https://etsi-ai.github.io/docs/"
               target="_blank"
               rel="noopener noreferrer"
               className="text-muted-foreground hover:text-primary transition-colors text-sm font-mono"
