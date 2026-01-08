@@ -220,11 +220,14 @@ export const Contributors = () => {
               className="group relative"
               onMouseEnter={() => setHoveredIndex(index)}
               onMouseLeave={() => setHoveredIndex(null)}
+              style={{
+                zIndex: hoveredIndex === index ? 50 : 10,
+              }}
             >
               {/* Glow effect */}
               <div 
                 className={`absolute inset-0 rounded-full transition-all duration-500 ${
-                  hoveredIndex === index ? 'opacity-100 scale-110' : 'opacity-0 scale-100'
+                  hoveredIndex === index ? 'opacity-100 scale-150' : 'opacity-0 scale-100'
                 }`}
                 style={{
                   background: 'radial-gradient(circle, hsl(265 85% 65% / 0.4) 0%, transparent 70%)',
@@ -233,38 +236,73 @@ export const Contributors = () => {
               />
               
               {/* Avatar container */}
-              <div className={`relative w-20 h-20 md:w-24 md:h-24 rounded-full overflow-hidden border-2 transition-all duration-300 ${
+              <div className={`relative rounded-full overflow-hidden border-2 transition-all duration-500 ease-out ${
                 hoveredIndex === index 
-                  ? 'border-primary box-glow-hover scale-110' 
-                  : 'border-border/50'
+                  ? 'w-28 h-28 md:w-32 md:h-32 border-primary box-glow-hover scale-110 -translate-y-2' 
+                  : hoveredIndex !== null
+                  ? 'w-16 h-16 md:w-20 md:h-20 border-border/30 scale-90 opacity-70'
+                  : 'w-20 h-20 md:w-24 md:h-24 border-border/50'
               }`}>
                 <img
                   src={contributor.avatar_url}
                   alt={contributor.login}
-                  className="w-full h-full object-cover"
+                  className="w-full h-full object-cover transition-all duration-500"
                   onError={(e) => {
                     // Fallback to generated avatar if GitHub avatar fails
                     const target = e.target as HTMLImageElement;
                     target.src = `https://api.dicebear.com/7.x/shapes/svg?seed=${contributor.login}&backgroundColor=1a1625`;
                   }}
                 />
+                
+                {/* Pulse ring effect on hover */}
+                <div className={`absolute inset-0 rounded-full border-2 border-primary transition-all duration-500 ${
+                  hoveredIndex === index 
+                    ? 'scale-125 opacity-0 animate-ping' 
+                    : 'scale-100 opacity-0'
+                }`} />
               </div>
 
               {/* Contributor info tooltip */}
-              <div className={`absolute -bottom-16 left-1/2 -translate-x-1/2 whitespace-nowrap transition-all duration-300 ${
+              <div className={`absolute -bottom-20 left-1/2 -translate-x-1/2 whitespace-nowrap transition-all duration-500 ${
                 hoveredIndex === index 
-                  ? 'opacity-100 translate-y-0' 
-                  : 'opacity-0 translate-y-2'
+                  ? 'opacity-100 translate-y-0 scale-100' 
+                  : 'opacity-0 translate-y-4 scale-95'
               }`}>
-                <div className="bg-card/90 backdrop-blur-sm border border-border/50 rounded-lg px-3 py-2 text-center">
-                  <span className="text-sm font-mono text-primary block">
+                <div className="bg-card/95 backdrop-blur-sm border border-border/50 rounded-lg px-4 py-3 text-center shadow-xl">
+                  <span className="text-sm font-mono text-primary block font-semibold">
                     {contributor.login}
                   </span>
                   <span className="text-xs text-muted-foreground">
                     {contributor.contributions} contributions
                   </span>
+                  {contributor.repo && (
+                    <span className="text-xs text-accent block mt-1">
+                      {contributor.repo}
+                    </span>
+                  )}
                 </div>
+                
+                {/* Tooltip arrow */}
+                <div className="absolute -top-1 left-1/2 -translate-x-1/2 w-2 h-2 bg-card/95 border-l border-t border-border/50 rotate-45" />
               </div>
+
+              {/* Floating particles effect on hover */}
+              {hoveredIndex === index && (
+                <div className="absolute inset-0 pointer-events-none">
+                  {[...Array(6)].map((_, particleIndex) => (
+                    <div
+                      key={particleIndex}
+                      className="absolute w-1 h-1 bg-primary rounded-full animate-ping"
+                      style={{
+                        top: `${20 + Math.random() * 60}%`,
+                        left: `${20 + Math.random() * 60}%`,
+                        animationDelay: `${particleIndex * 0.1}s`,
+                        animationDuration: '1.5s',
+                      }}
+                    />
+                  ))}
+                </div>
+              )}
             </a>
           ))}
         </div>
