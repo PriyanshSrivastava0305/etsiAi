@@ -13,7 +13,7 @@ interface TeamMember {
 const teamMembers: TeamMember[] = [
   {
     name: 'Priyansh Srivastava',
-    image: 'https://api.dicebear.com/7.x/avataaars/svg?seed=john&backgroundColor=1a1625',
+    image: 'https://api.dicebear.com/9.x/bottts/svg?seed=Jameson',
     currentRole: 'Founder & CEO',
     previousRole: 'Ex-Microsoft',
     github: 'https://github.com/PriyanshSrivastava0305',
@@ -21,7 +21,7 @@ const teamMembers: TeamMember[] = [
   },
   {
     name: 'Romit Chatterjee',
-    image: 'https://api.dicebear.com/7.x/avataaars/svg?seed=sarah&backgroundColor=1a1625',
+    image: 'https://api.dicebear.com/9.x/adventurer/svg?seed=Liam',
     currentRole: 'Co-founder & CTO',
     previousRole: 'Ex-Google',
     github: 'https://github.com/Romit23',
@@ -29,7 +29,7 @@ const teamMembers: TeamMember[] = [
   },
   {
     name: 'Soham Ramesh Gore',
-    image: 'https://api.dicebear.com/7.x/avataaars/svg?seed=michael&backgroundColor=1a1625',
+    image: 'https://api.dicebear.com/9.x/adventurer/svg?seed=Ryan',
     currentRole: 'Head of Operations',
     previousRole: 'Ex-OpenAI',
     github: 'https://github.com/debug-soham',
@@ -37,7 +37,7 @@ const teamMembers: TeamMember[] = [
   },
   {
     name: 'Praveen Kumar Purushothaman',
-    image: 'https://api.dicebear.com/7.x/avataaars/svg?seed=emily&backgroundColor=1a1625',
+    image: 'https://api.dicebear.com/9.x/adventurer/svg?seed=Jocelyn',
     currentRole: 'Mentor & Advisor',
     previousRole: 'Ex-VP at JPMorgan Chase',
     github: 'https://github.com/praveenscience',
@@ -45,7 +45,7 @@ const teamMembers: TeamMember[] = [
   },
   {
     name: 'Biswadeep Dev',
-    image: 'https://api.dicebear.com/7.x/avataaars/svg?seed=emily&backgroundColor=1a1625',
+    image: 'https://api.dicebear.com/9.x/micah/svg?seed=Jocelyn',
     currentRole: 'Head of Sales',
     previousRole: 'Founder of Donum',
     github: 'https://github.com/emilyrodriguez',
