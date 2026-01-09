@@ -53,7 +53,7 @@ const teamMembers: TeamMember[] = [
   },
   {
     name: 'Gargie Chandra',
-    image: 'https://api.dicebear.com/7.x/avataaars/svg?seed=emily&backgroundColor=1a1625',
+    image: 'https://api.dicebear.com/9.x/adventurer/svg?seed=Avery',
     currentRole: 'Head of Marketing',
     previousRole: 'Marketing lead at K1000',
     // github: 'https://github.com/emilyrodriguez',
